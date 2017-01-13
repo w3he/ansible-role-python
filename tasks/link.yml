@@ -1,0 +1,11 @@
+---
+    - name: create symlinks
+      shell: "{{ item }}"
+      args:
+        chdir: /usr/local/bin
+        creates: /usr/local/bin/python
+      with_items:
+        - ln -s python2.7 python
+        - ln -s easy_setup-2.7 easy_setup
+        - ln -s pip2.7 pip
+        - ln -s python2.7-config python-config
