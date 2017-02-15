@@ -39,7 +39,7 @@
     make altinstall
   args:
     chdir: "{{python_src_pkg_dir}}"
-  sudo: true
+  become: true
   when: (python_installed | failed) or (python_force_build)
 
 # vi:ts=2:sw=2:et:ft=yaml
