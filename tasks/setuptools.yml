@@ -32,13 +32,15 @@
     chdir: "{{python_setuptools_src_dir}}"
   when: (setuptools_installed | failed) or (setuptools_force_build)
 
-# FIXME idempotency
+- name: Getting get-pip.py
+  get_url: url=https://bootstrap.pypa.io/get-pip.py dest=~
+    
 - name: Install pip
-  easy_install:
-    name: pip
-    executable: "{{python_setuptools_bin}}"
-#  command: >
-#    {{python_setuptools_bin}} pip
+  become: yes
+  command: "{{ item }}" 
+  with_items: 
+  - "{{ python_bin }} get-pip.py"
+  - "{{ python_pip_bin }} install --upgrade pip"
 
 
 # vi:ts=2:sw=2:et:ft=yaml
