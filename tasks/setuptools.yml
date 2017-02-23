@@ -42,5 +42,10 @@
   - "{{ python_bin }} get-pip.py"
   - "{{ python_pip_bin }} install --upgrade pip"
 
+- name: Install additional packages
+  become: yes
+  command: "pip install {{ item }}"
+  with_items:
+  - "{{ python_modules }}"
 
 # vi:ts=2:sw=2:et:ft=yaml

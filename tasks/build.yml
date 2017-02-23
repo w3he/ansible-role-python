@@ -12,6 +12,8 @@
     url="{{python_src_url}}"
     dest="{{python_src_prefix}}"
     validate_certs="{{python_download_validate_certs}}"
+  when: python_src_stat.stat.exists == False
+  register: downloaded
 #  when: python_src_stat.stat.md5|default('')
 
 - name: Extract code
@@ -19,6 +21,7 @@
     copy=no
     src="{{python_src_prefix}}/{{python_src_pkg}}"
     dest="{{python_src_prefix}}"
+  when: downloaded.changed #or python_src_stat.stat.exists
 
 - name: Check Custom Python binary
   command: >

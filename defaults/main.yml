@@ -63,4 +63,6 @@ python_build_opts: ''
 python_force_build: False
 setuptools_force_build: False
 
+python_modules: []
+#
 # vi:ts=2:sw=2:et:ft=yaml
