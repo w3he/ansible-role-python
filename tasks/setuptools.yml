@@ -37,14 +37,14 @@
     
 - name: Install pip
   become: yes
-  command: "{{ item }}" 
+  shell: "{{ item }}" 
   with_items: 
   - "{{ python_bin }} get-pip.py"
   - "{{ python_pip_bin }} install --upgrade pip"
 
 - name: Install additional packages
   become: yes
-  command: "pip install {{ item }}"
+  shell: "{{ python_pip_bin }} install {{ item }}"
   with_items:
   - "{{ python_modules }}"
 
