@@ -1,11 +1,11 @@
 ---
 - name: create symlinks
-  shell: "{{ item }}"
-  args:
-    chdir: /usr/local/bin
-    creates: /usr/local/bin/python
+  file:
+    src: "/usr/local/bin/{{ item.src }}"
+    dest: "/usr/local/bin/{{ item.dest }}"
+    state: link
   with_items:
-    - ln -s python2.7 python
-    - ln -s easy_setup-2.7 easy_setup
-    - ln -s pip2.7 pip
-    - ln -s python2.7-config python-config
+    - { src: 'python2.7',        dest: 'python' }
+    - { src: 'easy_install-2.7', dest: 'easy_install' }
+    - { src: 'pip2.7',           dest: 'pip' }
+    - { src: 'python2.7-config', dest: 'python-config' }
