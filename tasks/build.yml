@@ -35,6 +35,8 @@
     make {{python_build_opts_default}} {{python_build_opts}}
   args:
     chdir: "{{python_src_pkg_dir}}"
+  async: 1000
+  poll: 60
   when: (python_installed | failed) or (python_force_build)
 
 - name: Install Custom Python

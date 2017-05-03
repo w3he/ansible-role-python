@@ -1,7 +1,7 @@
 ---
 - name: create symlinks
   file:
-    src: "/usr/local/bin/{{ item.src }}"
+    src: "{{python_install_prefix}}/bin/{{ item.src }}"
     dest: "/usr/local/bin/{{ item.dest }}"
     state: link
   with_items:
