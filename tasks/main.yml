@@ -14,8 +14,4 @@
 - include: setuptools.yml
   tags: python_setuptools_build
 
-- include: link.yml
-  become: true
-  tags: python_link
-
 # vi:ts=2:sw=2:et:ft=yaml
