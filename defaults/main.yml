@@ -10,7 +10,7 @@ python_install_prefix: /usr/local
 # Python binary to check
 #  This should also be specified by yourself, pointing to the
 #  binary that the build generates
-#python_bin: "{{python_install_prefix}}/bin/python2.7"
+python_bin: "{{python_install_prefix}}/bin/python2.7"
 
 # Python src prefix
 #  Directory where python source code will be downloaded
@@ -45,7 +45,7 @@ python_setuptools_pkg_dir: "{{python_setuptools_src_dir}}/setuptools-python-{{py
 
 # Setuptools binary
 #  This should also be set by yourself
-#python_setuptools_bin: "{{python_install_prefix}}/bin/easy_install-2.7"
+python_setuptools_bin: "{{python_install_prefix}}/bin/easy_install-2.7"
 
 # List of dev dependencies to be installed
 #  There is a default package list defined in the vars/<ditro>.yml file

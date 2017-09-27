@@ -1,0 +1,12 @@
+---
+- name: create symlinks
+  file:
+    src: "{{python_install_prefix}}/bin/{{item.src }}"
+    dest: "{{python_install_prefix}}/bin/{{ item.dest }}"
+    state: link
+  with_items:
+    - { src: 'python2.7',        dest: 'python' }
+    - { src: 'easy_install-2.7', dest: 'easy_install' }
+    - { src: 'python2.7-config', dest: 'python-config' }
+#    pip is created during install, link will not work
+#    - { src: 'pip2.7',           dest: 'pip' }

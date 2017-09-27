@@ -4,6 +4,7 @@
   become: yes
   easy_install: 
     name: "{{ item }}"
+    executable: "{{ python_setuptools_bin }}"
     state: latest
   with_items:
   - pip
@@ -13,7 +14,7 @@
   become: yes
   pip: 
     name: "{{ item }}"
-    executable: /usr/local/bin/pip
+    executable: "{{python_install_prefix}}/bin/pip"
   with_items:
   - "{{ python_modules }}"
 
